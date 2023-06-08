@@ -1,0 +1,58 @@
+package com.adventour.springboot.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.adventour.springboot.exception.ResourceNotFoundException;
+import com.adventour.springboot.model.AdventourModel;
+import com.adventour.springboot.repository.AdventourRepository;
+
+@RestController
+@CrossOrigin
+@RequestMapping("/api/v1/")
+public class AdventourController {
+
+	
+	@Autowired
+	private AdventourRepository adventourRepository;
+	
+	@GetMapping("/tours")
+	public List<AdventourModel> getAllTours(){
+		return adventourRepository.findAll();
+	}
+	
+	@PostMapping("/tours")
+	public AdventourModel createTour(@RequestBody AdventourModel adventourTour) {
+		return adventourRepository.save(adventourTour);
+	}
+	
+	
+	@GetMapping("/tours/{id}")
+	public  ResponseEntity<AdventourModel> getTourById(@PathVariable long id) throws ResourceNotFoundException{
+		AdventourModel ID = adventourRepository.findById(id)
+				.orElseThrow(()-> new ResourceNotFoundException("Not Found")); 
+	return ResponseEntity.ok(ID);
+	}
+	
+	@PutMapping("/tours/{id}")
+	public ResponseEntity<AdventourModel> updateTours(Long id,AdventourModel tours){
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+}

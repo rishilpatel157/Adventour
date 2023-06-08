@@ -1,0 +1,5 @@
+package com.adventour.springboot.controller;
+
+public class UserDataController {
+
+}

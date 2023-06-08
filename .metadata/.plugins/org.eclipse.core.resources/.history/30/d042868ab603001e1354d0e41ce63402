@@ -1,0 +1,110 @@
+package com.adventour.springboot.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import com.adventour.springboot.model.AdventourModel;
+import com.adventour.springboot.repository.AdventourRepository;
+
+@RestController
+@CrossOrigin
+@RequestMapping("/api/v1/")
+public class AdventourController {
+
+	
+	@Autowired
+	private AdventourRepository adventourRepository;
+	
+	@GetMapping("/tours")
+	public List<AdventourModel> getAllTours(){
+		return adventourRepository.findAll();
+	}
+	
+	@PostMapping("/tours")
+	public AdventourModel createTour(@RequestBody AdventourModel adventourTour) {
+		return adventourRepository.save(adventourTour);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+//	private static String convertToJson(List<AdventourModel> tourList) {
+//		// TODO Auto-generated method stub
+//		 ObjectMapper mapper = new ObjectMapper();
+//	        try {
+//	            return mapper.writeValueAsString(tourList);
+//	        } catch (JsonProcessingException e) {
+//	            e.printStackTrace();
+//	        }
+//	        return "";
+//	}
+//	public static void main(String[] args) {
+//		
+//		String[] high = new String[4];
+//		high[0] = "Spend time in nature at Tsomgo Lake.";
+//		high[1] = "Pay your respects at Baba Mandir.";
+//		high[2] = "Shop for souvenirs at M G Marg and Lal Bazar";
+//		high[3] = "Sightseeing tour of Gangtok.";
+//		
+//		String[] routes = new String[4];
+//		routes[0] = "Bagdogra Airport - Gangtok (120 km/ 4.5 hours)";
+//		routes[1] = "After arrival at Bagdogra Airport, our representative will greet you and transfer you to Gangtok. Once reached, complete the check-in formalities and enjoy the rest of the day at leisure. Then, spend the night at the hotel.";
+//		routes[2] = "Gangtok";
+//		routes[3] = "fter a scrumptious meal, get ready and proceed for a day trip to Tsomgo Lake. A famous tourist attraction of Gangtok, it is also called Changu Lake and is located on the road towards Nathu La Pass. Spend some time in peace and witness the breathtaking views. Later, drive to Baba Mandir. This religious shrine was built to commemorate Harbhajan Singh, a brave Indian soldier who died during the war at Nathu La Pass. After the tour, come back to Gangtok. Then, enjoy the rest of the day shopping.";
+//		AdventourModel A = new AdventourModel(1, "Sikkim ","https://www.indianholiday.com/images/new-home/2023/sikkim.jpg" , "Joyful Kashmir Tour", "4 N / 5 D", "Srinagar - Sonamarg - Gulmarg - Pahalgam - Srinagar", "https://www.indianholiday.com/pictures/tourintro/kashmir-tour-196.png?360x242", 12000, "https://www.indianholiday.com/pictures/tourthumb/kashmir-tour-196.jpeg", "Explore Heaven on the Earth's charm, beauty, and fun with our Joyful Kashmir Tour Itinerary. Through this tour package, you will visit some of the best places in Kashmir, like Sonamarg, Srinagar, Gulmarg, and Pahalgam. Apart from it, Shikara rides, pony rides, and many such activities are listed in the Kashmir itinerary. You can enjoy skiing in one of Asia's best skiing destinations, Gulmarg. And if you are not visiting in winter, add a pony ride up to Thajiwas Glacier to your Ja", high, routes);
+//		
+//					
+//	List<AdventourModel> tourList = new ArrayList<>();
+//	
+//        
+//		
+//		tourList.add(A);
+//		
+//		String jsonPayload = convertToJson(tourList);
+//		
+//		 try {
+//	            // Set up the connection
+//	            URL url = new URL("http://localhost:7788/api/v1/tours");  // Replace with your API endpoint URL
+//	            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+//	            connection.setRequestMethod("POST");
+//	            connection.setRequestProperty("Content-Type", "application/json");
+//	            connection.setDoOutput(true);
+//
+//	            // Send the POST request
+//	            OutputStream outputStream = connection.getOutputStream();
+//	            outputStream.write(jsonPayload.getBytes());
+//	            outputStream.flush();
+//	            outputStream.close();
+//
+//	            // Read the response
+//	            int responseCode = connection.getResponseCode();
+//	            if (responseCode == HttpURLConnection.HTTP_OK) {
+//	                System.out.println("POST request successful");
+//	            } else {
+//	                System.out.println("POST request failed with response code: " + responseCode);
+//	            }
+//
+//	            connection.disconnect();
+//	        } catch (IOException e) {
+//	            e.printStackTrace();
+//	        }
+//		
+//	}
+
+
+}

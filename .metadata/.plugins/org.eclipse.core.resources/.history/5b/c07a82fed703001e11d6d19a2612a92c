@@ -1,0 +1,16 @@
+package com.adventour.springboot.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
+
+import com.adventour.springboot.controller.Map;
+import com.adventour.springboot.model.AdventourModel;
+
+@Repository
+public interface AdventourRepository extends JpaRepository<AdventourModel,Long> {
+
+	@Query(nativeQuery = true, value = "Select count(case when CRR = 'L' then 1 else null END) AS \"Low\",    count(case when CRR = 'M' then 1 else null END) AS \"Medium\",    count(case when CRR = 'H' then 1 else null END) AS \"High\"     From ENTPROD.CUSTOMER_PROFILE")
+	Map<String, Object> getRiskDisrtibution();
+	
+}

@@ -1,0 +1,45 @@
+package com.adventour.springboot.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import com.adventour.springboot.model.AdventourModel;
+import com.adventour.springboot.repository.AdventourRepository;
+
+@RestController
+@CrossOrigin
+@RequestMapping("/api/v1/")
+public class AdventourController {
+
+	
+	@Autowired
+	private AdventourRepository adventourRepository;
+	
+	@GetMapping("/tours")
+	public List<AdventourModel> getAllTours(){
+		return adventourRepository.findAll();
+	}
+	
+	@PostMapping("/tours")
+	public AdventourModel createTour(@RequestBody AdventourModel adventourTour) {
+		return adventourRepository.save(adventourTour);
+	}
+	
+	//getid
+	
+	public AdventourModel getTourById(long)
+	
+	
+	
+	
+	
+	
+	
+	
+}

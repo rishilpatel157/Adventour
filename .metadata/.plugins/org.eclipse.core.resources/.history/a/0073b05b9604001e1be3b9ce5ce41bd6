@@ -1,0 +1,37 @@
+package com.adventour.springboot.model;
+
+import jakarta.annotation.Generated;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name= "UserData")
+public class UserEntity {
+
+	
+	@Id
+	private long id;
+	
+	@Column(name = "customer_Name")
+	private String custName;
+	
+	@Column(name = "customer_Number")
+	private long custNum;
+	
+	@Column(name = "customer_Email")
+	private String custEmail;
+	
+	@Column(name = "adults_count")
+	private int adultsCount;
+	
+	@Column(name = "child_Count")
+	private int childCount;
+	
+	@Column(name = "tour_Title")
+	private String tourTitle;
+
+}

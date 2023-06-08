@@ -1,0 +1,57 @@
+package com.adventour.springboot.model;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "tours_packages")
+public class AdventourModel {
+
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	
+	@Column(name = "state")
+	private String state;
+	
+	@Column(name = "state_img")
+	private String StateImg;
+	
+	@Column(name = "tour_title")
+	private String tourTitle;
+	
+	@Column(name = "tour_img")
+	private String tourImg;
+	
+	@Column(name = "cities")
+	private String cities;
+	
+	@Column(name = "periods")
+	private String periods;
+	
+	@Column(name = "cost")
+	private int cost;
+	
+	@Column(name = "city_img")
+	private String cityImg;
+	
+	@Column(name = "overview")
+	private String overview;
+	
+	@Column(name = "trip_highlights")
+	private String[] tripHighlights;
+	
+	@Column(name = "tour_routes")
+	private String[] tourRoutes;
+	
+	
+ 	
+	
+	
+	
+}

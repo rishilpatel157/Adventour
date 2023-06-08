@@ -1,0 +1,11 @@
+package com.adventour.springboot.repository;
+
+import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.adventour.springboot.model.UserEntity;
+
+@Repository
+public class UserDataController extends SimpleJpaRepository<UserEntity, Long>{
+
+}

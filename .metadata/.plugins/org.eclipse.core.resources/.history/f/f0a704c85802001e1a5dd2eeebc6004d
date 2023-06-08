@@ -1,0 +1,196 @@
+package com.adventour.springboot.model;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "tours_packages")
+public class AdventourModel {
+
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	
+	@Column(name = "state")
+	private String state;
+	
+	@Column(name = "state_img")
+	private String stateImg;
+	
+	@Column(name = "tour_title")
+	private String tourTitle;
+	
+	@Column(name = "tour_img")
+	private String tourImg;
+	
+	@Column(name = "cities")
+	private String cities;
+	
+	@Column(name = "periods")
+	private String periods;
+	
+	@Column(name = "cost")
+	private int cost;
+	
+	@Column(name = "city_img")
+	private String cityImg;
+	
+	@Column(name = "overview")
+	private String overview;
+	
+	@Column(name = "trip_highlights")
+	private String[] tripHighlights;
+	
+	@Column(name = "tour_routes")
+	private String[] tourRoutes;
+
+	
+	
+	public AdventourModel() {
+		super();
+	}
+
+	public AdventourModel(long id, String state, String stateImg, String tourTitle, String tourImg, String cities,
+			String periods, int cost, String cityImg, String overview, String[] tripHighlights, String[] tourRoutes) {
+		super();
+		this.id = id;
+		this.state = state;
+		this.stateImg = stateImg;
+		this.tourTitle = tourTitle;
+		this.tourImg = tourImg;
+		this.cities = cities;
+		this.periods = periods;
+		this.cost = cost;
+		this.cityImg = cityImg;
+		this.overview = overview;
+		this.tripHighlights = tripHighlights;
+		this.tourRoutes = tourRoutes;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getStateImg() {
+		return stateImg;
+	}
+
+	public void setStateImg(String stateImg) {
+		this.stateImg = stateImg;
+	}
+
+	public String getTourTitle() {
+		return tourTitle;
+	}
+
+	public void setTourTitle(String tourTitle) {
+		this.tourTitle = tourTitle;
+	}
+
+	public String getTourImg() {
+		return tourImg;
+	}
+
+	public void setTourImg(String tourImg) {
+		this.tourImg = tourImg;
+	}
+
+	public String getCities() {
+		return cities;
+	}
+
+	public void setCities(String cities) {
+		this.cities = cities;
+	}
+
+	public String getPeriods() {
+		return periods;
+	}
+
+	public void setPeriods(String periods) {
+		this.periods = periods;
+	}
+
+	public int getCost() {
+		return cost;
+	}
+
+	public void setCost(int cost) {
+		this.cost = cost;
+	}
+
+	public String getCityImg() {
+		return cityImg;
+	}
+
+	public void setCityImg(String cityImg) {
+		this.cityImg = cityImg;
+	}
+
+	public String getOverview() {
+		return overview;
+	}
+
+	public void setOverview(String overview) {
+		this.overview = overview;
+	}
+
+	public String[] getTripHighlights() {
+		return tripHighlights;
+	}
+
+	public void setTripHighlights(String[] tripHighlights) {
+		this.tripHighlights = tripHighlights;
+	}
+
+	public String[] getTourRoutes() {
+		return tourRoutes;
+	}
+
+	public void setTourRoutes(String[] tourRoutes) {
+		this.tourRoutes = tourRoutes;
+	}
+
+	
+	
+	
+	public static void main(String[] args) {
+		
+		String[] high = new String[4];
+		high[0] = "Spend time in nature at Tsomgo Lake.";
+		high[1] = "Pay your respects at Baba Mandir.";
+		high[2] = "Shop for souvenirs at M G Marg and Lal Bazar";
+		high[3] = "Sightseeing tour of Gangtok.";
+		
+		String[] routes = new String[4];
+		routes[0] = "Bagdogra Airport - Gangtok (120 km/ 4.5 hours)";
+		routes[1] = "After arrival at Bagdogra Airport, our representative will greet you and transfer you to Gangtok. Once reached, complete the check-in formalities and enjoy the rest of the day at leisure. Then, spend the night at the hotel.";
+		routes[2] = "Gangtok";
+		routes[3] = "fter a scrumptious meal, get ready and proceed for a day trip to Tsomgo Lake. A famous tourist attraction of Gangtok, it is also called Changu Lake and is located on the road towards Nathu La Pass. Spend some time in peace and witness the breathtaking views. Later, drive to Baba Mandir. This religious shrine was built to commemorate Harbhajan Singh, a brave Indian soldier who died during the war at Nathu La Pass. After the tour, come back to Gangtok. Then, enjoy the rest of the day shopping.";
+		AdventourModel A = new AdventourModel(1, "Sikkim ","https://www.indianholiday.com/images/new-home/2023/sikkim.jpg" , "Joyful Kashmir Tour", "4 N / 5 D", "Srinagar - Sonamarg - Gulmarg - Pahalgam - Srinagar", "https://www.indianholiday.com/pictures/tourintro/kashmir-tour-196.png?360x242", 12000, "https://www.indianholiday.com/pictures/tourthumb/kashmir-tour-196.jpeg", "Explore Heaven on the Earth's charm, beauty, and fun with our Joyful Kashmir Tour Itinerary. Through this tour package, you will visit some of the best places in Kashmir, like Sonamarg, Srinagar, Gulmarg, and Pahalgam. Apart from it, Shikara rides, pony rides, and many such activities are listed in the Kashmir itinerary. You can enjoy skiing in one of Asia's best skiing destinations, Gulmarg. And if you are not visiting in winter, add a pony ride up to Thajiwas Glacier to your Ja", high, routes);
+		
+	
+	
+	}
+ 	
+	
+	
+	
+}

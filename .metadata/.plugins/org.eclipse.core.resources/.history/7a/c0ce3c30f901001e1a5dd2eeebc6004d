@@ -1,0 +1,5 @@
+package com.adventour.springboot.exception;
+
+public class ResourceNotFoundException {
+
+}

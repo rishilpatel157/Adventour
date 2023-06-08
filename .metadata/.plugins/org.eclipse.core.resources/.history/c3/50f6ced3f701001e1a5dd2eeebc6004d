@@ -1,0 +1,8 @@
+package com.adventour.springboot.repository;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class AdventourRepository extends JPARepository<AdventourModel,Long> {
+
+}
